@@ -1,0 +1,32 @@
+This little script runs on a desktop linux computer and
+listens for files dropped into the 'print_queue' directory
+inside your Dropbox directory.  This allows you to print
+easily from a mobile device.
+
+
+1. Save dropbox_printer.py somewhere, make it executable
+2. System->Preferences->Startup Applications (Gnome) 
+ - Give it a name, eg "Dropbox Printer"
+ - Browse to the script
+3. Log out, log in
+
+To use - add files to the 'print_queue' folder inside your dropbox
+folder, and they will be sent to the default printer (as seen by
+lpr).  It behaves like a print queue - ie, FILES ARE DELETED AFTER
+PRINTING.
+
+some files need to be sent through imagemagick.  If I send a
+SVG file directly to my postscript printer I get pages and 
+pages of SVG markout printed out - not the graphic.  So I've
+designated SVG as a format that need to be preprocessed by
+imagemagick, and provided a list of file extensions that 
+should aslo be preprocessed.
+
+There are three configurations options at the top of the script:
+path - path to Dropbox folder
+ext_to_convert - file extensions to be run through imagemagick
+convert_args - any arguments that should be passed to imagemagick
+
+TODO
+ - Add printer selection, other args to lpr
+ - Use python bindings for CUPS and pythonmagick
