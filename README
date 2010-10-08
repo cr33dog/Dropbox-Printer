@@ -12,21 +12,24 @@ easily from a mobile device.
 
 To use - add files to the 'print_queue' folder inside your dropbox
 folder, and they will be sent to the default printer (as seen by
-lpr).  It behaves like a print queue - ie, FILES ARE DELETED AFTER
-PRINTING.
+CUPS).  It behaves like a print queue - ie, BY DEFAULT FILES ARE 
+DELETED AFTER PRINTING.
 
-some files need to be sent through imagemagick.  If I send a
+Some files need to be sent through imagemagick.  If I send a
 SVG file directly to my postscript printer I get pages and 
 pages of SVG markout printed out - not the graphic.  So I've
 designated SVG as a format that need to be preprocessed by
 imagemagick, and provided a list of file extensions that 
 should aslo be preprocessed.
 
-There are three configurations options at the top of the script:
+There are some configuration options at the top of the script:
 path - path to Dropbox folder
+empty_queue - whether or not to delete files after printing
 ext_to_convert - file extensions to be run through imagemagick
 convert_args - any arguments that should be passed to imagemagick
+cups_options - CUPS job options
 
 TODO
- - Add printer selection, other args to lpr
- - Use python bindings for CUPS and pythonmagick
+ - Add printer selection
+ - Try PIL instead of imagemagick
+ - Add error handling and logging
